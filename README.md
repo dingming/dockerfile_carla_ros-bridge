@@ -1,5 +1,7 @@
 # dockerfile_carla_ros-bridge
 Dockerfile for creating a docker image including Carla Simulator and Carla-ros-bridge-Melodic.
+Please install and setup [NVIDIA Container Toolkit]8https://github.com/NVIDIA/nvidia-docker) before.
+
 
 ## Build and run image
 Create the docker image: carlasim/carla-ros:local. 
