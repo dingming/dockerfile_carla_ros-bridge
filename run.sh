@@ -1,14 +1,19 @@
 #! /bin/sh
 
-HOSTIP=`ifconfig wlp0s20f3|grep 'inet'|grep -v 'inet6'|awk '{print $2}'`
-echo $HOSTIP
+#HOSTIP=`ifconfig wlp0s20f3|grep 'inet'|grep -v 'inet6'|awk '{print $2}'`
+#echo $HOSTIP
 
 IMAGE=carlasim/carla-ros:local
+
+SHARED_DOCKER_DIR=/home/carla
+SHARED_HOST_DIR=$HOME/Program/carla/share_dir
 
 docker run -it --rm \
        --gpus all \
        -e DISPLAY=${DISPLAY} \
-       -p 2000-2002:2000-2002 \
+       --volume=$SHARED_HOST_DIR:$SHARED_DOCKER_DIR:rw \
        --net=host \
        $IMAGE
+
+#       -p 2000-2002:2000-2002 \
 #       -e DISPLAY=$HOSTIP:0.0 \
