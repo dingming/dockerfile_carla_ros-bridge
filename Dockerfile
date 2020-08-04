@@ -1,5 +1,5 @@
-#From ubuntu:18.04
-From nvidia/opengl:1.0-glvnd-runtime-ubuntu18.04
+#FROM ubuntu:18.04
+FROM nvidia/opengl:1.0-glvnd-runtime-ubuntu18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
