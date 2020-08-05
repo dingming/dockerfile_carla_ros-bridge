@@ -12,6 +12,7 @@ docker run -it --rm \
        --gpus all \
        -e DISPLAY=${DISPLAY} \
        --volume=$SHARED_HOST_DIR:$SHARED_DOCKER_DIR:rw \
+       --privileged \
        --net=host \
        $IMAGE
 
