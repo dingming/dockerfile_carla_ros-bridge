@@ -27,12 +27,8 @@ USER ${USER}
 WORKDIR ${HOME}
 SHELL ["/bin/bash", "-c"]
 
-RUN pip install --user pygame numpy
-
-ENV PYTHONPATH "$PYTHONPATH:/opt/carla-simulator/PythonAPI/carla/dist/carla-0.9.9-py2.7-linux-x86_64.egg"
-
-RUN source /opt/ros/melodic/setup.bash && \
-    source /opt/carla-ros-bridge/melodic/setup.bash
-
-# rosdep upate && rosdep install --from-paths src --ignore-src -y -r; \
-# catkin_make
+RUN pip install --user pygame numpy && \
+    cp /usr/share/base-files/dot.bashrc ${HOME}/.bashrc && \
+    sh -c 'echo "export PYTHONPATH=/opt/ros/melodic/lib/python2.7/dist-packages:/opt/carla-simulator/PythonAPI/carla/dist/carla-0.9.9-py2.7-linux-x86_64.egg" >> ${HOME}/.bashrc' && \
+    sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ${HOME}/.bashrc' && \
+    sh -c 'echo "source /opt/carla-ros-bridge/melodic/setup.bash" >> ${HOME}/.bashrc'
