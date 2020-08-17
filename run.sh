@@ -14,6 +14,7 @@ docker run -it --rm \
        --volume=$SHARED_HOST_DIR:$SHARED_DOCKER_DIR:rw \
        --privileged \
        --net=host \
+       --group-add audio \
        $IMAGE
 
 #       -p 2000-2002:2000-2002 \
