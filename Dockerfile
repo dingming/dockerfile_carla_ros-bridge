@@ -29,6 +29,6 @@ SHELL ["/bin/bash", "-c"]
 
 RUN pip install --user pygame numpy networkx && \
     cp /usr/share/base-files/dot.bashrc ${HOME}/.bashrc && \
-    sh -c 'echo "export PYTHONPATH=/opt/ros/melodic/lib/python2.7/dist-packages:/opt/carla-simulator/PythonAPI/carla/dist/carla-0.9.9-py2.7-linux-x86_64.egg:/opt/carla-simulator/PythonAPI/carla" >> ${HOME}/.bashrc' && \
+    sh -c 'echo "export PYTHONPATH=/opt/carla-ros-bridge/melodic/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages:/opt/carla-simulator/PythonAPI/carla/dist/carla-0.9.9-py2.7-linux-x86_64.egg:/opt/carla-simulator/PythonAPI/carla" >> ${HOME}/.bashrc' && \
     sh -c 'echo "source /opt/ros/melodic/setup.bash" >> ${HOME}/.bashrc' && \
     sh -c 'echo "source /opt/carla-ros-bridge/melodic/setup.bash" >> ${HOME}/.bashrc'

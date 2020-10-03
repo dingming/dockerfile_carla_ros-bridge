@@ -58,3 +58,23 @@ Reset the system environment variables.
 $ source /opt/ros/melodic/setup.bash
 $ source /opt/carla-ros-bridge/melodic/setup.bash
 ```
+- Cannot launch 'carla-waypoint-publish'
+  1. Edit $PYTHONPATH
+  ```
+  $ export PYTHONPATH=$PYTHONPATH:/opt/carla-simulator/PythonAPI/carla
+  ```
+  2. install `networkx`
+  ```
+  $ pip install -U networkx
+  ```
+  3. Edit carla-waypoint-publish.py
+  The function `GlobalRoutePlannerDAO` has been changed, which need one more option. (It has been correct in newest version in carla's github)
+  ```
+  $ cd /opt/carla-ros-bridge/melodic/lib/carla-waypoint-publish/
+  $ [edit] carla-waypoint-publish.py
+  ```
+  Change line 217 as follows:
+  ```
+  < dao = GlobalRoutePlannerDAO(self.world.get_map())
+  > dao = GlobalRoutePlannerDAO(self.world.get_map(), hop_resolution=1.0)
+  ```
